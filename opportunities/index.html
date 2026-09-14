@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEM Opportunities | STEM2Connect</title>
+  <meta name="description" content="Find student-friendly extracurricular activities, summer camps, and STEM programs near you." />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="STEM2Connect home">
+        <img src="../assets/logo.jpg" alt="STEM2Connect logo" class="brand-logo" />
+        <span class="brand-name">STEM2Connect</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../">Home</a></li>
+        <li><a href="../resources/">Resources</a></li>
+        <li><a href="./" aria-current="page">Opportunities</a></li>
+        <li><a href="../#events">Events</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="opportunities-hero">
+      <div class="container opportunities-hero-inner">
+        <div>
+          <p class="section-label">Opportunity Finder</p>
+          <h1>Find your next place to explore.</h1>
+          <p>Browse student-friendly STEM activities and summer programs, then use the map to see what is close to you.</p>
+        </div>
+        <div class="finder-stat"><strong id="resultCount">0</strong><span>opportunities<br />to explore</span></div>
+      </div>
+    </section>
+
+    <section class="section opportunities-section" aria-labelledby="opportunities-title">
+      <div class="container opportunities-layout">
+        <div class="opportunities-content">
+          <div class="opportunities-toolbar">
+            <div>
+              <p class="section-label">Curated for students</p>
+              <h2 id="opportunities-title">Activities and summer camps</h2>
+            </div>
+            <label class="search-field"><span class="sr-only">Search opportunities</span><input id="opportunitySearch" type="search" placeholder="Search by name or topic" /></label>
+          </div>
+          <div class="filter-row" id="filterRow" aria-label="Filter opportunities">
+            <button class="filter-button is-active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="activity">Activities</button>
+            <button class="filter-button" type="button" data-filter="camp">Summer camps</button>
+          </div>
+          <div class="opportunity-grid" id="opportunityGrid"></div>
+          <p class="empty-state" id="emptyState" hidden>No opportunities match that search yet.</p>
+        </div>
+
+        <aside class="map-panel" aria-labelledby="map-title">
+          <div class="map-panel-heading"><div><p class="section-label">Explore locations</p><h2 id="map-title">Opportunity map</h2></div><button class="map-control" id="resetMap" type="button" title="Reset map view" aria-label="Reset map view">&#8962;</button></div>
+          <div id="opportunityMap" role="application" aria-label="Interactive map of STEM opportunities"></div>
+          <p class="map-note">Map data © OpenStreetMap contributors. Select a pin to open its opportunity.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="detail-drawer" id="opportunityDetail" aria-live="polite" hidden>
+      <div class="container detail-inner"><div id="detailContent"></div><button class="detail-close" id="closeDetail" type="button" aria-label="Close opportunity details">&times;</button></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-content"><p>© <span id="year"></span> STEM2Connect. All rights reserved.</p><a href="../">Back to home ↑</a></div></footer>
+  <script src="../script.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
